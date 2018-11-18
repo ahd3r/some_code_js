@@ -272,4 +272,56 @@ const greeting_var=function(name='Ander'){
 //     console.log(`Hi ${name}`);
 // }());
 
+// for(let i=0; i < 100; i++){
+//     if(i === 20){
+//         console.log('Number ' + i);
+//     } else {
+//         continue;
+//     }
+// }
+
+// let i=0;
+
+// while(i<100){
+//     console.log('Number ' + i);
+//     i=i+Math.round(Math.random()*10);
+// }
+
+// do{
+//     i=Math.round(Math.random()*9+1)
+//     console.log('Number ' + i);
+// } while(i!=7)
+
+// const cars=['Ford','Lexus','Tesla','Chevrolet']
+
+// cars.forEach(function(car){
+//     if(car === 'Tesla'){
+//         console.log('I love ' + car);
+//     } else{
+//         console.log(car);
+//     }
+// })
+
+const users=[
+    {'id':1, 'name':'Ander'},
+    {'id':2, 'name':'Peyton'},
+    {'id':3, 'name':'Alex'},
+    {'id':4, 'name':'Vel'},
+];
+
+const ids=users.map(function(usersAsWell){
+    if (usersAsWell.name==='Peyton'){
+        return `I love ${usersAsWell.name}`
+    }
+    return usersAsWell.name;
+});
+
+// console.log(ids);
+
+const cars={'Ford':'Mustang','Lexus':'LF-NX','Tesla':'Roadster','Chevrolet':'Camaro'};
+
+// for(let x in cars){
+//     console.log(`${x} ${cars[x]}`);
+// }
+
 
