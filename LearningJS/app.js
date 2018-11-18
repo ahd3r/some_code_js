@@ -323,5 +323,3 @@ const cars={'Ford':'Mustang','Lexus':'LF-NX','Tesla':'Roadster','Chevrolet':'Cam
 // for(let x in cars){
 //     console.log(`${x} ${cars[x]}`);
 // }
-
-
