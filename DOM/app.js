@@ -267,4 +267,10 @@ function startEvent(e){
     }
 }
 
+document.querySelector('body').addEventListener('click', checkTask);
 
+function checkTask(e){
+    if(e.target.classList.contains('do')){
+        console.log('This is task');
+    }
+}
