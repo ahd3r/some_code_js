@@ -1,0 +1,20 @@
+[
+    {
+        "id":0,
+        "name": "Peyton",
+        "position":"founder1",
+        "phone":"111-222-333"
+    },
+    {
+        "id":1,
+        "name": "Alex",
+        "position":"founder2",
+        "phone":"444-555-666"
+    },
+    {
+        "id":2,
+        "name": "Ander",
+        "position":"founder3",
+        "phone":"777-888-999"
+    }
+]
