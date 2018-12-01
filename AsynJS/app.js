@@ -157,9 +157,9 @@ function getNewPost(){
     },1000);
 }
 
-createNewPost().then(getNewPost).catch(function(error){
-    console.log(error);
-});
+// createNewPost().then(getNewPost).catch(function(error){
+//     console.log(error);
+// });
 
 // fetch with arrow function and more cleaner
 document.querySelector('#gtext').addEventListener('click', function(){
@@ -184,3 +184,32 @@ document.querySelector('#gdata').addEventListener('click', function(){
 let sayHello = (greeting, name) => `${greeting} ${name}`;
 
 // console.log(sayHello('Hello', 'Man'));
+
+// async func
+const hello = async (word) => {
+    const promise = new Promise((resolve)=>{
+        setTimeout(()=>resolve(word),1000);
+    });
+    const error = false;
+    if(error){
+        await Promise.reject(new Error('Something went wrong'));
+    } else {
+        const res = await promise;
+        return res;
+    }
+};
+
+// console.log(hello('Hi man')); // without async
+
+// hello('Hi man').then((res)=>console.log(res)).catch(err=>console.log(err));
+
+const getUsers = async()=>{
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await response.json();
+    return data;
+};
+
+getUsers().then(users=>console.log(users));
+
+// Fetch which I done by myself
+// function myOwnFetch(){}
