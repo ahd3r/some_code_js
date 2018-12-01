@@ -103,7 +103,7 @@ document.querySelector('#joke-form').addEventListener('submit', function(e) {
     e.preventDefault();
 });
 
-// callback example
+// callback example (OLD)
 
 const somePosts=[
     {"title": "Post One", "description": "one"},
@@ -119,9 +119,6 @@ function createPost(callback){
 
 function getPost(){
     setTimeout(function(){
-        while(document.querySelector('.cb').firstChild){
-            document.querySelector('.cb').firstChild.remove();
-        }
         document.querySelector('.cb').appendChild(document.createElement('ul')).className='posts-list';
         somePosts.forEach(function(post){
             document.querySelector('.posts-list').appendChild(document.createElement('li')).textContent=post.title;
@@ -130,3 +127,60 @@ function getPost(){
 }
 
 createPost(getPost);
+
+// callback example Promises (NEW)
+const someNewPosts=[
+    {title: 'New Post One', description: 'one'},
+    {title: 'New Post Two', description: 'two'}
+];
+
+function createNewPost(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            someNewPosts.push({"title": "New Post Three", "description":'three'});
+            let error=true;
+            if(error){
+                reject('Error: Something went wrong! Check it or just say \'error = false\'');
+            }else{
+                resolve();
+            }
+        },2000);
+    });
+}
+
+function getNewPost(){
+    setTimeout(function(){
+        document.querySelector('.ncb').appendChild(document.createElement('ul')).className='new-posts-list';
+        someNewPosts.forEach(function(post){
+            document.querySelector('.new-posts-list').appendChild(document.createElement('li')).textContent=post.title;
+        });
+    },1000);
+}
+
+createNewPost().then(getNewPost).catch(function(error){
+    console.log(error);
+});
+
+// fetch with arrow function and more cleaner
+document.querySelector('#gtext').addEventListener('click', function(){
+    fetch('text.txt').
+    then(res=>res.text()).then(data=>console.log(data)).
+    catch(err=>console.log(err))});
+
+document.querySelector('#gjson').addEventListener('click', function(){
+    fetch('teamembers.json').then(res=>res.json()).
+    then(data=>console.log(data)).
+    catch(err=>console.log(err));
+});
+
+document.querySelector('#gdata').addEventListener('click', function(){
+    fetch('https://api.github.com/users/ahd3r').
+    then(res=>res.json()).
+    then(data=>console.log(data)).
+    catch(err=>console.log(err));
+});
+
+// example for arrow function
+let sayHello = (greeting, name) => `${greeting} ${name}`;
+
+// console.log(sayHello('Hello', 'Man'));
