@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Callbacks and Higher-Order Functions</title>
+</head>
+<body>
+  <div>
+    <h1>Callbacks and Higher-Order Functions</h1>
+    <h3>Challenge 1</h3>
+    Create a function <code>addTwo</code> that accepts one input and adds 2 to it.
+    <h3>Challenge 2</h3>
+    Create a function <code>addS</code> that accepts one input and adds an "s" to it.
+    <h3>Challenge 3</h3>
+    Create a function called <code>map</code> that takes two inputs:<br>
+    <ol>
+      <li>an array of numbers (a list of numbers)</li>
+      <li>a 'callback' function - a function that is applied to each element of the array (inside of the function 'map')</li>
+    </ol>
+    Have <code>map</code> return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array.<br>
+    <pre style="color:#000000;background:#ccc;">map<span style="color:#808030; ">(</span><span style="color:#808030; ">[</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">,</span><span style="color:#008c00; ">3</span><span style="color:#808030; ">,</span><span style="color:#008c00; ">4</span><span style="color:#808030; ">,</span><span style="color:#008c00; ">5</span><span style="color:#808030; ">]</span><span style="color:#808030; ">,</span> multiplyByTwo<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span> <span style="color:#696969; ">//-&gt; [2,4,6,8,10]</span><br>multiplyByTwo<span style="color:#808030; ">(</span><span style="color:#008c00; ">1</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span> <span style="color:#696969; ">//-&gt; 2</span><br>multiplyByTwo<span style="color:#808030; ">(</span><span style="color:#008c00; ">2</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span> <span style="color:#696969; ">//-&gt; 4</span></pre>
+    <h3>Challenge 4</h3>
+    The function <code>forEach</code> takes an array and a callback, and runs the callback on each element of the array. <code>forEach</code> does not return anything.
+    <pre style="color:#000000;background:#ccc;"><span style="color:#800000; font-weight:bold; ">var</span> alphabet <span style="color:#808030; ">=</span> <span style="color:#800000; ">'</span><span style="color:#800000; ">'</span><span style="color:#800080; ">;</span>
+      <span style="color:#800000; font-weight:bold; ">var</span> letters <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#800000; ">'</span><span style="color:#0000e6; ">a</span><span style="color:#800000; ">'</span><span style="color:#808030; ">,</span> <span style="color:#800000; ">'</span><span style="color:#0000e6; ">b</span><span style="color:#800000; ">'</span><span style="color:#808030; ">,</span> <span style="color:#800000; ">'</span><span style="color:#0000e6; ">c</span><span style="color:#800000; ">'</span><span style="color:#808030; ">,</span> <span style="color:#800000; ">'</span><span style="color:#0000e6; ">d</span><span style="color:#800000; ">'</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+      forEach<span style="color:#808030; ">(</span>letters<span style="color:#808030; ">,</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span><span style="color:#800000; font-weight:bold; ">char</span><span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span>
+        alphabet <span style="color:#808030; ">+=</span> <span style="color:#800000; font-weight:bold; ">char</span><span style="color:#800080; ">;</span>
+      <span style="color:#800080; ">}</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>
+      console<span style="color:#808030; ">.</span><span style="color:#800000; font-weight:bold; ">log</span><span style="color:#808030; ">(</span>alphabet<span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>   <span style="color:#696969; ">//prints 'abcd'</span>
+    </pre>
+    <h3>Extension 1</h3>
+    In the first part of the extension, you're going to rebuild <code>map</code> as <code>mapWith</code>. This time you're going to use <code>forEach</code> inside of <code>mapWith</code> instead of using a <code>for</code> loop.
+    <h3>Extension 2</h3>
+    The function <code>reduce</code> takes an array and reduces the elements to a single value. For example it can sum all the numbers, multiply them, or any operation that you can put into a function.
+    <pre style="color:#000000;background:#ccc;"><span style="color:#800000; font-weight:bold; ">var</span> nums <span style="color:#808030; ">=</span> <span style="color:#808030; ">[</span><span style="color:#008c00; ">4</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">1</span><span style="color:#808030; ">,</span> <span style="color:#008c00; ">3</span><span style="color:#808030; ">]</span><span style="color:#800080; ">;</span>
+      <span style="color:#800000; font-weight:bold; ">var</span> add <span style="color:#808030; ">=</span> <span style="color:#800000; font-weight:bold; ">function</span><span style="color:#808030; ">(</span>a<span style="color:#808030; ">,</span> b<span style="color:#808030; ">)</span> <span style="color:#800080; ">{</span> <span style="color:#800000; font-weight:bold; ">return</span> a <span style="color:#808030; ">+</span> b<span style="color:#800080; ">;</span> <span style="color:#800080; ">}</span>
+      reduce<span style="color:#808030; ">(</span>nums<span style="color:#808030; ">,</span> add<span style="color:#808030; ">,</span> <span style="color:#008c00; ">0</span><span style="color:#808030; ">)</span><span style="color:#800080; ">;</span>   <span style="color:#696969; ">//-&gt; 8</span>
+    </pre>
+    Here's how it works. The function has an "accumulator value" which starts as the <code>initialValue</code> and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the <code>callback</code>. The callback's return value becomes the new accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. <code>add(0,4)</code> is called. The accumulator's value is now 4. Then <code>add(4, 1)</code> to make it 5. Finally <code>add(5, 3)</code> brings it to 8, which is returned.
+    <h3>Extension 3</h3>
+    Construct a function <code>intersection</code> that compares input arrays and returns a new array with elements found in all of the inputs. BONUS: Use reduce!
+    <h3>Extension 4</h3>
+    Construct a function <code>union</code> that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array. BONUS: Use reduce!
+    <h3>Extension 5</h3>
+    Construct a function <code>objOfMatches</code> that accepts two arrays and a callback. <code>objOfMatches</code> will build an object and return it. To build the object, <code>objOfMatches</code> will test each element of the first array using the callback to see if the output matches the corresponding element (by index) of the second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
+    <h3>Extension 6</h3>Construct a function <code>multiMap</code> that will accept two arrays: an array of values and an array of callbacks. <code>multiMap</code> will return an object whose keys match the elements in the array of values. The corresponding values that are assigned to the keys will be arrays consisting of outputs from the array of callbacks, where the input to each callback is the key.
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
