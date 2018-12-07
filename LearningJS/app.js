@@ -323,3 +323,91 @@ const cars={'Ford':'Mustang','Lexus':'LF-NX','Tesla':'Roadster','Chevrolet':'Cam
 // for(let x in cars){
 //     console.log(`${x} ${cars[x]}`);
 // }
+
+// regular expressions
+let re; // regular expressions
+re=/hello/;
+re=/hello/i; // insensitive
+// re=/hello/g; // global
+
+// console.log(re)
+// console.log(re.source);//whole word
+
+// exec -> returns array of info about found word or words
+const result1 = re.exec('hello World!'); // if string won't have the re's word, it gives you 'null'
+// console.log(result1);
+// console.log(result1[0]);
+// console.log(result1.index); // where re's word starts
+// console.log(result1.input);
+
+// test -> returns true if in string which into func parametr exist re's word and false if not exist
+const result2 = re.test('hello World!');
+// const result2 = re.test('Hello World!'); // false without 'i' and true with 'i'
+// console.log(result2);
+
+// match -> like an exect, but modern 
+const strForRe1 = 'Hello There';
+const result3 = strForRe1.match(re);
+// console.log(result3);
+
+// search -> returns an index where re's word starts or -1
+const strForRe2 = 'Me: Hello There!';
+const result4 = strForRe2.search(re);
+// console.log(result4); // 4
+
+// replace -> returns chenged string
+const oldStr = 'Hello There!';
+const newStrAsARes5=oldStr.replace(re, 'hi');
+// console.log(newStrAsARes5);
+
+re = /hello/; // no 'Hello'
+re = /hello/i; // yes (i - insensitive)
+re = /^h/i; // yes (^start-must start of it)
+re = /o$/i; // yes (end$-must end on it)
+re = /^hello$/i; // yes
+re = /.ello/; // yes (insted . can be everything, but once)
+re = /H*o/; // yes (insted * can be everything at all)
+
+// Brakets [] — Character Sets 
+re = /h[aeo]llo/i; // can be on of the simbol in []
+re = /h[a-z]llo/i; // can be every lowcase simbol, but because of 'i' in the end it can be upercase as well
+re = /[Hh][a-zA-Z]llo/; // similar with uper, but withiut 'i'
+re = /^h[a-z]llo[0-9]$/i;
+
+// Brakets {} — Quantifiers
+re=/[0-9]{2,}hello/i; // can be nums in the start more then twice 
+re=/hel{2}o/i; // repeats 'l' twice
+re=/hel{2,4}o/i; // repeats 'l' twice or four times
+re=/hel{2,}o/i; // repeats 'l' twice or more times
+
+// Brakets () — Takes some simbols in one
+re = /(pewdiepie){3,}/i; // can be PewDiePie more then three times
+
+// Classes
+re = /\w/; // Takes first simbol or null
+re = /\w+/; // Takes all simbols befor unacceptable character (first word)
+re = /\W/; // Takes firsr unacceptable character for w
+re = /\d/; // Takes first digit or null
+re = /\d+/; // Takes all digits befor unacceptable character
+re = /\D/; // Takes first unacceptable character for d
+re = /\s/; // Takes first space
+re = /\s+/; // Takes all spaces in sequence
+re = /\S/; // Takes first unacceptable character for s
+
+// Assertions
+re = /t(?=o)/; // Takes 't' if after it will be 'o'
+re = /t(?!o)/; // Takes 't' if after it won't be 'o'
+
+const oneMoreStr=' subscribe 112to PewDiePie';
+
+const resulter=re.exec(oneMoreStr);
+// console.log(resulter);
+
+function compare(re,str){
+	if(re.test(str)){
+		console.log(`${re.source} match on ${str}`);
+	} else {
+		console.log(`${re.source} not match on ${str}`);
+	}
+}
+// compare(re,oneMoreStr);
