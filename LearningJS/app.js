@@ -155,7 +155,7 @@ const persone={
 };
 const {fuckingName, fuckingAge, fuckingCity, fuckingGender, ...otherStuff}=persone;
 
-console.log(fuckingName, fuckingAge, fuckingCity, fuckingGender);
+// console.log(fuckingName, fuckingAge, fuckingCity, fuckingGender);
 
 
 const today=new Date();
