@@ -424,3 +424,38 @@ function compare(re,str){
 	}
 }
 // compare(re,oneMoreStr);
+
+// Map
+const map=new Map();
+console.log(map);
+map.set('key1', 'value1'); // All type of data can be here 
+map.set('key2', 'value2');
+map.set('key3', 'value3');
+
+console.log(map.get('key1'));
+console.log(map.size);
+for(let [k,v] of map){
+    console.log(k + ' = ' + v);
+}
+const arrV=Array.from(map.values());
+const arrK=Array.from(map.keys());
+const arrA=Array.from(map);
+console.log(arrV);
+console.log(arrK);
+console.log(arrA);
+
+// Set - like dict in python
+const set=new Set([1,'two',{three:'four',five:6},true]);
+set.add(8);
+set.delete(8);
+console.log(set.size);
+console.log(set);
+for(let i of set){
+    console.log(i);
+}
+set.forEach((value)=>{
+    console.log(value);
+});
+const ArrFromSet = Array.from(set);
+console.log(ArrFromSet);
+
