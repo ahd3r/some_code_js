@@ -144,6 +144,19 @@ const people=[
 //     console.log(people[i].name);
 // };
 
+// Destructuring
+// const [a,b, ...other]=[100,200,300,400,500,600,700];
+// const {a,b,c}={a:100, b:200, c:300, d: 400};
+const persone={
+	fuckingName: 'Ander',
+	fuckingAge: 18,
+	fuckingCity: 'Dnipro',
+	fuckingGender: 'Male'
+};
+const {fuckingName, fuckingAge, fuckingCity, fuckingGender, ...otherStuff}=persone;
+
+console.log(fuckingName, fuckingAge, fuckingCity, fuckingGender);
+
 
 const today=new Date();
 const chosenDay=new Date('12/5/2016 12:00:01:200');
