@@ -266,3 +266,50 @@ Chatroom.prototype={
 // chatroomCode.deleteMember(brad);
 // console.log(allUser);
 // console.log(allChatroom);
+
+// prototype pattern
+class Sheep{
+	constructor(name,type,age,goodness,milk){
+		this.name = name;
+		this.type = type;
+		this.age= age;
+		this.goodness = goodness;
+		this.milk = milk;
+	}
+	setName(name){
+		this.name=name;
+	}
+	getName(){
+		return this.name;
+	}
+	getType(){
+		return this.type;
+	}
+	getAge(){
+		return this.age;
+	}
+	getGoodness(){
+		return this.goodness;
+	}
+	getMilk(){
+		return this.milk;
+	}
+	clone(){
+		const res={};
+		res.__proto__=this.__proto__;
+		for(let i in this){
+			res[i]=this[i];
+		}
+		return res;
+	}
+}
+
+const sheepDoly = new Sheep('Doly','Mount',4,true,true);
+const sheepMoly = sheepDoly.clone();
+
+sheepMoly.setName('Moly');
+
+console.log(sheepDoly);
+console.log(sheepMoly);
+console.log(sheepDoly);
+
