@@ -1,0 +1,34 @@
+<!-- docker run -v ~/Desktop/aaa:/usr/share/nginx/html -p 8080:80 nginx -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>This is start</title>
+</head>
+<body>
+	<button>router</button>
+	<p></p>
+
+	<script>
+		const ptag = document.querySelector('p');
+		const render = () => {
+			if (!window.history.state) {
+				ptag.textContent = 'start';
+			} else {
+				ptag.textContent = `clicked: ${window.history.state} times`;
+			}
+		};
+		window.onpopstate = render;
+
+		document.addEventListener('click', () => {
+			let curState = window.history.state ? window.history.state : 0;
+			++curState;
+			window.history.pushState(curState, 'Going', `/click_${++curState}`);
+			render();
+		});
+
+		render();
+	</script>
+</body>
+</html>
